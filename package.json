@@ -1,0 +1,15 @@
+{
+  "name": "youtubeserver",
+  "version": "1.0.0",
+  "description": "a backend for youtube appication",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "javascript",
+    "backend"
+  ],
+  "author": "Yasin Maldar",
+  "license": "ISC"
+}
