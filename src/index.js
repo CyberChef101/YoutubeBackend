@@ -1,8 +1,7 @@
-//require('dotenv').config({path:'./env'})
+// require('dotenv').config({path:'./env'}) another way to add dotenv..
 
 import dotenv from "dotenv"
-import mongoose from "mongoose";
-import connectDB from "./db/index.js";
+import connectDB from "./db/database.js";
 
 dotenv.config({
     path:'./env'
@@ -10,5 +9,17 @@ dotenv.config({
 
 
 
-connectDB();
+connectDB()
+.then(()=>{
+    app.listen(process.env.PORT || 8000,()=>{
+        console.log(`server is running at port ${process.env.PORT}`);
+    })
+    app.throw(("error",(error)=>{
+        console.log("error -> ",error);
+        throw error
+    }))
+})
+.catch((error)=>{
+    console.log("MongoDB connection failed",error)
+})
 
