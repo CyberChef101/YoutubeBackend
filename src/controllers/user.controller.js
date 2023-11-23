@@ -2,7 +2,6 @@ import { asyncHandler } from "../utils/asyncHandler.js";
 import {ApiError} from "../utils/ApiError.js"
 import {User} from "../models/user.model.js"
 import {uploadOnCloudinary} from "../utils/cloudinary.js"
-import { response } from "express";
 import { ApiResponse } from "../utils/ApiResponse.js";
 
 const registerUser = asyncHandler( async (req,res) => {
@@ -55,7 +54,7 @@ const registerUser = asyncHandler( async (req,res) => {
         coverImage : coverImage?.url || "",
         email,
         password,
-        username : username.toLowercase(),
+        username : username.toLowerCase(),
     })
     //remove password ad refresh token feild from response
     const createdUser = await User.findById(user._id).select(
